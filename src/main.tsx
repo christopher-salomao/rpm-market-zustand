@@ -1,11 +1,9 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
 import { Toaster } from "react-hot-toast";
-
-import { AuthProvider } from "./contexts/AuthContext/provider";
+import { initAuthListener } from "./services/firebaseAuthListener";
 
 import { register } from "swiper/element/bundle";
 register();
@@ -16,11 +14,11 @@ import "swiper/css/scrollbar";
 
 import "./index.css";
 
+initAuthListener();
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Toaster position="top-right" />
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+     <RouterProvider router={router} />
   </StrictMode>
 );

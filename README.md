@@ -22,6 +22,12 @@ Além das funcionalidades originais, o projeto recebeu algumas melhorias visuais
 - **Nome e logo próprios** – agora chamado **RPM Market**, com identidade visual personalizada
 - **Confirmação de ações importantes** – uso do `Dialog` do shadcn/ui para confirmar logout ou exclusão de conta
 - **Mensagem de erro personalizada** – alerta amigável quando o usuário tenta buscar um veículo que não está à venda
+- **[Zustand](https://zustand-demo.pmnd.rs/)** – Gerenciamento de estado leve e simples
+
+## 🔗 Repositório da versão com Context API
+
+Se quiser conferir a versão original do projeto usando **Context API**, acesse:
+[Repositório RPM Market – Context API](https://github.com/christopher-salomao/rpm-market.git)
 
 ## 📸 Preview
 
@@ -34,7 +40,7 @@ Além das funcionalidades originais, o projeto recebeu algumas melhorias visuais
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/christopher-salomao/rpm-market.git
+   git clone https://github.com/christopher-salomao/rpm-market-zustand.git
    ```
 2. **Acesse a pasta do projeto:**
    ```bash

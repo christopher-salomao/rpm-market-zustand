@@ -1,10 +1,11 @@
-import { type ReactNode, useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext/context";
+import { type ReactNode } from "react";
+
+import { useAuthStore } from "@/store/authStore";
 import { Navigate } from "react-router-dom";
 
 
 export function Guest({ children }: { children: ReactNode }) {
-  const { signed, loadingAuth } = useContext(AuthContext);
+  const { signed, loadingAuth } = useAuthStore();
 
   if (loadingAuth) {
     return <div></div>;

@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext/context";
+import { useAuthStore } from "@/store/authStore";
 
 import { Link } from "react-router-dom";
 import { FiUser, FiLogIn } from "react-icons/fi";
 import logo from "../../assets/logo.png";
 
 function Header() {
-  const { signed, loadingAuth, user } = useContext(AuthContext);
+  const { signed, loadingAuth, user } = useAuthStore();
 
   return (
     <header className="w-full flex items-center justify-center px-4 py-2 bg-white drop-shadow mb-4">
