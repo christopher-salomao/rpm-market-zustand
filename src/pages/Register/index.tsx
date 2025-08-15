@@ -1,5 +1,5 @@
-import { useEffect, useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContext/context";
+import { useEffect } from "react";
+import { useAuthStore } from "@/store/authStore";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Input";
 
@@ -16,7 +16,7 @@ import toast from "react-hot-toast";
 import { toastStyle } from "../../styles/toastStyle";
 
 function Register() {
-  const { handleInfoUser } = useContext(AuthContext);
+  const { handleInfoUser } = useAuthStore();
   const {
     register,
     handleSubmit,

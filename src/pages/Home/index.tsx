@@ -140,7 +140,7 @@ function Home() {
         </button>
       </div>
 
-      <h1 className="text-2xl font-medium mt-6 mb-4">
+      <h1 className="text-2xl font-medium mt-6 mb-4 text-center">
         Veículos novos e usados em todo o Brasil
       </h1>
 

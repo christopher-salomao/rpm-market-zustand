@@ -1,5 +1,5 @@
-import { type ChangeEvent, useState, useContext } from "react";
-import { AuthContext } from "../../../contexts/AuthContext/context";
+import { type ChangeEvent, useState } from "react";
+import { useAuthStore } from "@/store/authStore";
 
 import { Container } from "../../../components/Container";
 import { DashboardHeader } from "../../../components/PanelHeader";
@@ -15,11 +15,7 @@ import { toastStyle } from "../../../styles/toastStyle";
 
 import { v7 as uuidV7 } from "uuid";
 import { storage, db } from "@/services/firebaseConnection";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-} from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 
 interface ImageItemProps {
@@ -27,9 +23,8 @@ interface ImageItemProps {
   previewURL: string;
 }
 
-
 function NewVehicle() {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthStore();
 
   const [vehicleImages, setVehicleImages] = useState<ImageItemProps[]>([]);
 

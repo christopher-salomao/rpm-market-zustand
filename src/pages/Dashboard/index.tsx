@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container } from "../../components/Container";
 import { DashboardHeader } from "../../components/PanelHeader";
@@ -15,19 +15,26 @@ import {
 import { Spinner } from "@/components/Spinner";
 
 import { db } from "@/services/firebaseConnection";
-import { collection, query, getDocs, where, doc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  query,
+  getDocs,
+  where,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 import { storage } from "@/services/firebaseConnection";
 
 import type { VehicleProps } from "@/interfaces/VehicleProps";
 
-import { AuthContext } from "@/contexts/AuthContext/context";
+import { useAuthStore } from "@/store/authStore";
 
 function Dashboard() {
   const [vehicles, setVehicles] = useState<VehicleProps[]>([]);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthStore();
 
   useEffect(() => {
     function loadVehicles() {
@@ -95,7 +102,7 @@ function Dashboard() {
       setVehicles(
         vehicles.filter((prevVehicle) => prevVehicle.id !== vehicle.id)
       );
-    } catch  {
+    } catch {
       return;
     }
   }
@@ -140,7 +147,9 @@ function Dashboard() {
                         <DialogClose asChild>
                           <button
                             className="bg-red-500 text-white border-2 border-zinc-900 font-medium px-12 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300"
-                            onClick={() => {handleDeleteVehicle(vehicle)}}
+                            onClick={() => {
+                              handleDeleteVehicle(vehicle);
+                            }}
                           >
                             Sim
                           </button>
