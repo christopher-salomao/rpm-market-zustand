@@ -42,11 +42,11 @@ function NewVehicle() {
     if (e.target.files && e.target.files[0]) {
       const image = e.target.files[0];
 
-      if (image.type === "image/jpeg" || image.type === "image/png") {
+      if (image.type === "image/jpeg" || image.type === "image/png" || image.type === "image/jpg" || image.type === "image/webp") {
         const previewURL = URL.createObjectURL(image);
         setVehicleImages((images) => [...images, { file: image, previewURL }]);
       } else {
-        toast.error("Envie uma imagem do tipo PNG ou JPEG", {
+        toast.error("Envie uma imagem do tipo PNG, JPEG ou WEBP", {
           style: toastStyle,
         });
       }
