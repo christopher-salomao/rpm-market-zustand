@@ -16,7 +16,7 @@ import {
 
 export function DashboardHeader() {
   return (
-    <div className="flex items-center justify-between bg-zinc-900 w-full text-white py-3 px-4 rounded-lg mb-4">
+    <div className="flex items-center justify-between bg-zinc-900 w-full text-white py-3 px-4 rounded-lg mb-4 text-sm md:text-base">
       <div>
         <Link to={"/dashboard"} className="mr-4 hover:underline">
           Deshboard
